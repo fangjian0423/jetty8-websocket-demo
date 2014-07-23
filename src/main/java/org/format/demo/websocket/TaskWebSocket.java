@@ -33,6 +33,7 @@ public class TaskWebSocket implements WebSocket.OnTextMessage {
                 conn.sendMessage(result);
             }
             conn.sendMessage("任务执行完毕");
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("error");
