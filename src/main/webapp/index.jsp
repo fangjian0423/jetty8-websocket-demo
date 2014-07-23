@@ -17,7 +17,6 @@
             };
             ws.onclose = function() {
                 alert("task complete");
-                $(".btn").attr('disabled', 'disabled');
             }
         }
     </script>
@@ -26,7 +25,7 @@
 <div id="msgBox" style="width:400px;height:300px;border:1px solid #000000;margin: 0 auto;background-color: #FFFF00;">
 </div>
 <div style="text-align: center; margin: 10px;">
-    <input type="button" value="start task" class="btn" onclick="javascript: ws.send('start')"/>
+    <input type="button" value="start task" class="btn" onclick="javascript: ws.send('start');$('.btn').attr('disabled', 'disabled');"/>
 </div>
 </body>
 </html>
