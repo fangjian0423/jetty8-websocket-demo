@@ -24,11 +24,11 @@ public class TaskWebSocket implements WebSocket.OnTextMessage {
         try {
             conn.sendMessage("开始执行任务");
             int taskNum = 4;
-            for(int i = 0; i < 4; i ++) {
+            for(int i = 0; i < taskNum; i ++) {
                 Task task = new Task(random.nextInt(20), conn, String.valueOf(i + 1));
                 completionService.submit(task);
             }
-            for(int i = 0; i < 4; i ++) {
+            for(int i = 0; i < taskNum; i ++) {
                 String result = completionService.take().get();
                 conn.sendMessage(result);
             }
