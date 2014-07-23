@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <title>WebSocket Demo</title>
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
@@ -15,6 +15,10 @@
                 $('#msgBox').append(resp.data);
                 $('#msgBox').append('</br>');
             };
+            ws.onclose = function() {
+                alert("task complete");
+                $(".btn").attr('disabled', 'disabled');
+            }
         }
     </script>
 </head>
@@ -22,7 +26,7 @@
 <div id="msgBox" style="width:400px;height:300px;border:1px solid #000000;margin: 0 auto;background-color: #FFFF00;">
 </div>
 <div style="text-align: center; margin: 10px;">
-    <input type="button" value="btn" class="btn" onclick="javascript: ws.send('go')"/>
+    <input type="button" value="start task" class="btn" onclick="javascript: ws.send('start')"/>
 </div>
 </body>
 </html>
